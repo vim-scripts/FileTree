@@ -2,6 +2,7 @@
 
 	           FileTree - by Yury Altukhou
 	       based on opsplorer - by Patrick Schiel 
+	       thanks to Thomas Link for helping
 
 		  View of the file tree. 
 1. General		   |FileTree_general|
@@ -9,6 +10,12 @@
 3. File operations	   |FileTree_file_operations|
 4. Opening files	   |FileTree_opening_files|
 5. Misc funtions	   |FileTree_misc|
+6. Navigation		   |tree_Navigating|
+7. Options		   |FileTree_Options|
+8. Directory stack	   |FileTree_DirStack|
+9. Commands		   |FileTree_Commands|
+10. Thanks		   |FileTree_Thanks|
+11. BUGS		   |FileTree_BUGS|
 
 
 ==============================================================================
@@ -17,8 +24,13 @@
 1. General
    FileTree is an tree exporer that behaves almost like Patrick's opsplorer (
    it is based on it). It is based on the tree.vim script.
-Start explorer with: >
-	:FileTree 
+Start explorer with:
+   :FileTree <dirName>	 - to split it with defaults see |FileTree_Options|
+   :RFileTree <dirName>	 - to split it ont the right side
+   :LFileTree <dirName>	 - to split it on the left side
+   :TFileTree <dirName>	 - to split it at the top
+   :BFileTree <dirName>	 - to split it below
+
 ==============================================================================
 *FileTree_file_display*
 
@@ -71,4 +83,72 @@ just try it...
 Press n to insert the full path of the selected file/directory. The text
 will be inserted in the last active buffer (last position).
 ==============================================================================
+*FileTree_Options*
+7. Options	
+      You can setup following options in your vimrc:
+				 *FileTree_WindowHeigh*
+g:FileTree_WindowHeigh=10  
+   this variable sets minimal FileTree Window heigh.
+				 *FileTree_WindowWidth*
+g:FileTree_WindowWidth=30
+   this variable sets minimal FileTree Window Width.
+				 *FileTree_Orientation*
+g:FileTree_Orientation=1
+   this variable sets default orientation of the window
+   1 - Vertical 
+   0 - Horizontal 
+				 *FileTree_Side*
+g:FileTree_Side=0
+   this variable sets default side of the window 
+   1 - right/belo 
+   0 - left/top 
+
+==============================================================================
+*FileTree_DirStack*
+8. Directory stack	   
+
+   From version 1.0 you can use something like directory stack in shells.    
+
+==============================================================================
+*FileTree_Commands*
+9. Commands
+				 *CD*
+   :CD [<directory>]
+      Change working directory to specified one. It hadles '~' simbol to bring
+      you to you home directory. Also it understands envaronment variables. 
+      So you can use something like this :
+	    CD $HOME     - to go home
+      An argument may be "-", so it will bring you to the last changed
+      directory.
+      You can use directory stack from CD command :
+      :CD =<N> - were N is an entry in the stack
+				 *Pushd*
+   :Pushd <directory>
+   Pushes given directory into stack. So later you can get it from there.
+				 *Popd*
+   :Popd
+   Pops directory from the top of the stack and make it a current working
+   directory
+				 *Dirs*
+   :Dirs
+   Prints directory stack.
+
+==============================================================================
+*FileTree_Thanks*
+10. Thanks
+   Thanks to Patrick Schiel. 
+      It was he who wrote opsplorer.vim, on which tree.vim and this plugins
+      are based.
+   Thanks to Thomas Link.
+      He help me with testing of this plugin and some advices.
+
+==============================================================================
+*FileTree_BUGS*
+11. BUGS
+   1. Copy doesn't workd under windows ( I think except cycwin users).
+   2. Not all combinations of slashes backslashes and spaces are predicted
+   right.
+      
+==============================================================================
+
    vim:tw=78:ts=8:ft=help:norl:
