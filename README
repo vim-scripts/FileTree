@@ -1,0 +1,7 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1140
+
+A file tree exporer based on the tree.vim script.
+Since version 1.0 it has CD command and directory stack similar to shell's one.
+You can use RFileTree command to split it on the right side of the window or similar LFileTree,BFileTree,TFileTree commands. FileTree command uses default values for placing window.
+
+I will gladly accept any \(comments\|bug reports\|request for feature\)\+

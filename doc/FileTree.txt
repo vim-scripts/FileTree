@@ -1,0 +1,74 @@
+*FileTree.txt*	    For Vim version 6.1.  Last change: 2004 Nov 23 
+
+	           FileTree - by Yury Altukhou
+	       based on opsplorer - by Patrick Schiel 
+
+		  View of the file tree. 
+1. General		   |FileTree_general|
+2. File display		   |FileTree_file_display|
+3. File operations	   |FileTree_file_operations|
+4. Opening files	   |FileTree_opening_files|
+5. Misc funtions	   |FileTree_misc|
+
+
+==============================================================================
+*FileTree_general*
+
+1. General
+   FileTree is an tree exporer that behaves almost like Patrick's opsplorer (
+   it is based on it). It is based on the tree.vim script.
+Start explorer with: >
+	:FileTree 
+==============================================================================
+*FileTree_file_display*
+
+2. File display
+							*FileTree_H*
+Press H to toggle display of hidden files (filenames starting with a dot).
+(default: don't show hidden files)
+							*FileTree_M*
+If you wanna have a filter for displaying the files, press M and enter the
+new match pattern, something that |glob()| understands (e.g. *.c).
+
+==============================================================================
+*FileTree_file_operations*
+3. File operations
+							*FileTree_N*
+Press N to rename the selected file, you get prompted for the new filename
+then.
+							*FileTree_C*
+Press C to copy the selected file. You will be asked for the target
+filename.
+							*FileTree_D*
+Press D to delete the selected file (after confirmation).
+							*FileTree_O*
+Press O to move the file to somewhere else. You will be asked for the
+target filename.
+==============================================================================
+*FileTree_opening_files*
+
+4. Opening files
+							*FileTree_<CR>*
+							*FileTree_<Space>*
+Pressing Space on a file opens the file in the last active buffer and
+keeps the FileTree buffer open.
+							*FileTree_p*
+If you want to insert the content of the selected file in the active buffer,
+move to place where to insert, select the file in FileTree and press the
+p key.
+
+
+==============================================================================
+*FileTree_misc*
+5. Misc funtions
+							*FileTree_s*
+Pressing the s key invokes the unix "see" command with the selected filename.
+This command opens a file with the appropriate application (if it's properly
+assigned on your system).
+With that, you can for example play mp3's or open pdf-files out of your vim,
+just try it...
+							*FileTree_n*
+Press n to insert the full path of the selected file/directory. The text
+will be inserted in the last active buffer (last position).
+==============================================================================
+   vim:tw=78:ts=8:ft=help:norl:
